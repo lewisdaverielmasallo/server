@@ -89,3 +89,8 @@ remap   -> update the seeds of location in database
 futureproofing > the seeds should be expandable, sample in first the "12344534"seed and i want to expand the seed there should be a seperate world builder that uses the old
 seed "12344534" and generate a new seed based on the design of this but the generated block should be same as last seed
 database: x, y
+
+
+database query: 
+	- read  = http://localhost:3001/read?x=1&y=2
+	- write = http://localhost:3001/write?x=1&y=2&value=seed
