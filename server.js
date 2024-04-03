@@ -31,15 +31,17 @@ const server = http.createServer((req, res) => {
     const y = parseInt(query.y);
 
     if (!isNaN(x) && !isNaN(y)) {
-      const result = readArrayData(s, y);
+      const result = readArrayData(x, y);
       console.log(`R [${x}, ${y}] => ${result}`);
       res.statusCode = 200;
       res.end(result);
     } else {
+      console.log(query);
       res.statusCode = 400;
       res.end('Missing parameters');
     }
   } else {
+    console.log(parsedUrl.pathName);
     res.statusCode = 404;
     res.end('Invalid path');
   }
