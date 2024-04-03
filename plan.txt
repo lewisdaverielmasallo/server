@@ -1,0 +1,91 @@
+Database: MySQL
+
+
+Server: PHP
+
+
+ADMIN: PHP 
+	(IDEA) ->
+		- Live Logs for requests from users
+		- add schedules (sample changetheme etc...)
+
+
+UI : ANY
+	(IDEA) ->
+		- Modular UI
+		- based on builds
+		- entry point is main
+		- has encripted accesstokens each module
+		- each module is standalone (possible) in web
+		- each module has folder structure
+		- clean architecture for each
+		- have commons in ui (this will be included in any build)
+		- have main theme and changable theme in backend for frontend
+		- Primary Color: The primary color is the dominant color used in a design. It often sets the overall tone and mood of the interface or brand. In many cases, the primary color is used for important elements such as buttons, links, headings, and other key UI components.
+		- Secondary Color: Secondary colors complement the primary color and provide additional depth and visual interest to the design. They are used for supporting elements such as backgrounds, borders, and accents. Secondary colors should harmonize with the primary color and help to create a cohesive color scheme.
+		- Background Color: This is the color used for the background of the interface or specific elements. It provides contrast to the foreground elements and helps to establish hierarchy and readability.
+		- Accent Color: An accent color is a color used sparingly to draw attention to specific elements or interactions within the design. It adds emphasis and can be used for highlighting important information, interactive elements like buttons or links, or to create visual interest.
+		- primary will be solid color
+		- secondary will be shadows etc..
+		- background is background
+		- accent_info is blue
+		- accent_warn is red
+		- accent_success is green
+		- accent_highlight is yellow
+		- accent_neutral is gray
+
+BUILDER: 
+
+
+MODULAR: 
+	(IDEA) -> 
+		- standalone modules with accesstokens per module
+		- during build, these modules will be different based on settings
+		- sample -> Timelog Module (pass access token) 
+		- each module will have an encripted textfile for public key
+		- private-public key will be in builder
+		- use main as entrypoint and controller for UI
+		- modules will have entry_ui which is button or call receiver
+		- each module connects to backend for data
+		
+
+		
+		
+		
+		
+
+MODULAR TESTING      :
+MODULAR DEVELOPMENT  :
+BUILD TESTING        :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GAME with Unreal Engine:
+
+prerequisite PC with decent GPU
+Unreal Engine 5.3
+make a world generation
+infinite procedural world generation
+use database for storing seeds
+use ground pixel or block for seeding
+
+start   -> open > breakdown to blocks > generate world based on random seeds and surrounding > calculate seed for each blocks > save the blocks to database
+move 	-> for unloaded > if blocks has seed value from database use that to generate block else generate random based on surrounding
+remap   -> update the seeds of location in database
+
+futureproofing > the seeds should be expandable, sample in first the "12344534"seed and i want to expand the seed there should be a seperate world builder that uses the old
+seed "12344534" and generate a new seed based on the design of this but the generated block should be same as last seed
+database: x, y
