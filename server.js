@@ -8,22 +8,20 @@ readArrayData(data => {
   console.log('Array data loaded:', array2D);
 });
 
-// Create a server
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
   const query = parsedUrl.query;
 
   if (parsedUrl.pathname === '/write') {
-    // Handle write operation
     const x = parseInt(query.x);
     const y = parseInt(query.y);
     const value = query.value;
 
     if (!isNaN(x) && !isNaN(y) && value !== undefined) {
-      writeArrayData(value, x, y);
+      const result = writeArrayData(value, x, y);
       console.log(`W [${x}, ${y}] => ${value}`);
-      res.statusCode = 200;
-      res.end("Write Success");
+      res.statusCode = result ? 200 : 400;
+      res.end(result ? "Success" : "Failed");
     } else {
       res.statusCode = 400;
       res.end('Missing parameters');
@@ -33,10 +31,10 @@ const server = http.createServer((req, res) => {
     const y = parseInt(query.y);
 
     if (!isNaN(x) && !isNaN(y)) {
-      const value = readArrayData(s, y);
-      console.log(`R [${x}, ${y}] => ${value}`);
+      const result = readArrayData(s, y);
+      console.log(`R [${x}, ${y}] => ${result}`);
       res.statusCode = 200;
-      res.end(value);
+      res.end(result);
     } else {
       res.statusCode = 400;
       res.end('Missing parameters');
